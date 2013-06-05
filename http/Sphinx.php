@@ -49,7 +49,7 @@ class Sphinx extends \lithium\core\StaticObject {
 
         $config = static::config($name);
         $host = (isset($config['host'])) ? $config['host'] : 'localhost';
-        $port = (int) ((isset($config['port'])) ? $config['port'] : 3312);
+        $port = (int) ((isset($config['port'])) ? $config['port'] : 9312);
         $client->SetServer($host, $port);
 
         if (isset($config['retries'])) {
