@@ -13,13 +13,13 @@ class SphinxTest extends \lithium\test\Unit {
             'named' => array(
                 'test' => array(
                     'host' => '10.0.1.2',
-                    'port' => '3312'
+                    'port' => '9312'
                 ),
             ),
             'default' => array(
                 'test' => array(
                     'host' => '127.0.0.1',
-                    'port' => '3312'
+                    'port' => '9312'
                 ),
             ),
         ));
@@ -27,13 +27,13 @@ class SphinxTest extends \lithium\test\Unit {
     }
 
     public function testConfigIsSmoking () {
-        $expected = array('test' => array('host' => '127.0.0.1', 'port' => '3312'));
+        $expected = array('test' => array('host' => '127.0.0.1', 'port' => '9312'));
         $this->assertEqual($expected, Sphinx::config('default'));
         $this->assertEqual($expected, Sphinx::config());
     }
 
     public function testConfigNamespace () {
-        $expected = array('test' => array('host' => '10.0.1.2', 'port' => '3312'));
+        $expected = array('test' => array('host' => '10.0.1.2', 'port' => '9312'));
         $this->assertEqual($expected, Sphinx::config('named'));
     }
 
@@ -43,13 +43,13 @@ class SphinxTest extends \lithium\test\Unit {
 
     public function testConfigBasedOnEnvironment () {
         Environment::set('test');
-        $expected = array('host' => '127.0.0.1', 'port' => '3312');
+        $expected = array('host' => '127.0.0.1', 'port' => '9312');
         $this->assertEqual($expected, Sphinx::config());
     }
 
     public function testConfigBasedOnEnvironmentWithNamespace () {
         Environment::set('test');
-        $expected = array('host' => '10.0.1.2', 'port' => '3312');
+        $expected = array('host' => '10.0.1.2', 'port' => '9312');
         $this->assertEqual($expected, Sphinx::config('named'));
     }
 
